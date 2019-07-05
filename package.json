@@ -19,7 +19,8 @@
   "homepage": "https://github.com/iamwebwiz/nodey-bloggie#readme",
   "dependencies": {
     "ejs": "^2.6.2",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-edge": "^1.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"

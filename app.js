@@ -1,8 +1,11 @@
 const express = require("express");
+const edge = require("express-edge");
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.set("view engine", "ejs");
+app.use(edge);
+
+app.set("views", `${__dirname}/views`);
 
 app.use(express.static("public"));
 
