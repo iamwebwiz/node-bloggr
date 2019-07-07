@@ -1,8 +1,16 @@
 const express = require("express");
+const edge = require("express-edge");
 const app = express();
 const port = process.env.PORT || 3000;
+const mongoose = require("mongoose");
 
-app.set("view engine", "ejs");
+mongoose.connect("mongodb://localhost/bloggie", {
+  useNewUrlParser: true
+});
+
+app.use(edge);
+
+app.set("views", `${__dirname}/views`);
 
 app.use(express.static("public"));
 
