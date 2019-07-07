@@ -15,6 +15,15 @@ mongoose.set("useCreateIndex", true);
 mongoose.connect("mongodb://localhost/bloggie");
 
 /**
+ * Fetch all posts
+ */
+Post.find({}, (err, posts) => {
+  if (err) throw err;
+  else console.log(posts);
+  process.exit();
+});
+
+/**
  * Create a new post
  */
 let data = {
