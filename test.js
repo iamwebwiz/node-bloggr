@@ -32,20 +32,22 @@ Post.findById("5d216651c1001023e44abff8", (error, post) =>
 /**
  * Update a post
  */
-Post.findByIdAndUpdate(
-  "5d216497590f8d078c46b15f",
-  {
-    title: "First post title",
-    description: "First post description",
-    content: "First post content"
-  },
-  (error, post) => console.log(error, post)
-);
+let updateData = {
+  title: "First post title",
+  description: "First post description",
+  content: "First post content"
+};
+
+Post.findByIdAndUpdate("5d216497590f8d078c46b15f", updateData, (err, post) => {
+  if (err) throw err;
+  else console.log(post);
+});
 
 /**
  * Delete a post
  */
 Post.findByIdAndDelete("5d216651c1001023e44abff8", (err, post) => {
-  console.log(post.title, "has been deleted.");
+  if (err) throw err;
+  else console.log(post.title, "has been deleted.");
   process.exit();
 });
