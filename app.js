@@ -2,6 +2,11 @@ const express = require("express");
 const edge = require("express-edge");
 const app = express();
 const port = process.env.PORT || 3000;
+const mongoose = require("mongoose");
+
+mongoose.connect("mongodb://localhost/bloggie", {
+  useNewUrlParser: true
+});
 
 app.use(edge);
 
