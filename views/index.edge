@@ -1,5 +1,7 @@
 @layout('layouts.app')
 
 @section('content')
-  <p>This is a section block written in Edge</p>
+  @each(post in posts)
+    <h3>{{ post.title }}</h3>
+  @endeach
 @endsection
