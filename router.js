@@ -1,11 +1,9 @@
 const router = require("express").Router();
-const Post = require("./database/models/Post");
+const PostController = require("./controllers/PostController");
+const FrontendController = require("./controllers/FrontendController");
 
-router.get("/", async (req, res) => {
-  const posts = await Post.find({});
-  res.render("index", { posts: posts });
-});
+router.get("/", PostController);
 
-router.get("/contact", (req, res) => res.render("contact"));
+router.get("/contact", FrontendController.contact);
 
 module.exports = router;
