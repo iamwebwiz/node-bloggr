@@ -6,4 +6,6 @@ router.get("/", PostController);
 
 router.get("/contact", FrontendController.contact);
 
+router.post("/posts/new", PostController.storePost);
+
 module.exports = router;
