@@ -5,4 +5,12 @@ const index = async (req, res) => {
   res.render("index", { posts: posts });
 };
 
-module.exports = index;
+const readPost = async (req, res) => {
+  const post = await Post.find({ _id: req.params.id });
+  res.render("post", { post: post });
+};
+
+module.exports = {
+  index,
+  readPost
+};
