@@ -1,7 +1,8 @@
-const Post = require("../database/models/Post");
+import Post from "../database/models/Post";
 
 const index = async (req, res) => {
-  const posts = await Post.find({});
+  // const posts = await Post.find({});
+  const posts = Array(5).fill({});
   res.render("index", { posts: posts });
 };
 

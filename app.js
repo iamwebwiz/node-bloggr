@@ -1,17 +1,17 @@
-const express = require("express");
-const edge = require("express-edge");
-const fileUpload = require("express-fileupload");
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-const path = require("path");
+import express from "express";
+import edge from "express-edge";
+import fileUpload from "express-fileupload";
+import mongoose from "mongoose";
+import bodyParser from "body-parser";
+import path from "path";
+import router from "./router";
+import validationMiddleware from "./middlewares/StorePost";
 const app = express();
 const port = process.env.PORT || 3000;
-const router = require("./router");
-const validationMiddleware = require("./middlewares/StorePost");
 
-mongoose.connect("mongodb://localhost/bloggie", {
-  useNewUrlParser: true
-});
+// mongoose.connect("mongodb://localhost/bloggie", {
+//   useNewUrlParser: true
+// });
 
 app.use(edge);
 

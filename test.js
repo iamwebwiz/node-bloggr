@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
-const faker = require("faker");
-const Post = require("./database/models/Post");
+import mongoose from "mongoose";
+import faker from "faker";
+import Post from "./database/models/Post";
 
 /**
  * Fix deprecation warnings
