@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
-import faker from "faker";
-import Post from "./database/models/Post";
+const mongoose = require("mongoose");
+const faker = require("faker");
+const Post = require("./database/models/Post");
 
 /**
  * Fix deprecation warnings
@@ -41,7 +41,7 @@ Post.create(data, (error, post) => {
 /**
  * Find a post
  */
-Post.findById("5d216651c1001023e44abff8", (error, post) => {
+Post.findById("5d5f5fff1c01f99a756ffab7", (error, post) => {
   if (error) throw error;
   else console.log(post);
   process.exit();
@@ -50,7 +50,7 @@ Post.findById("5d216651c1001023e44abff8", (error, post) => {
 /**
  * Update a post
  */
-Post.findByIdAndUpdate("5d21eabef5b1d226c4ee8ddf", data, (err, post) => {
+Post.findByIdAndUpdate("5d5f5fff1c01f99a756ffab7", data, (err, post) => {
   if (err) throw err;
   else console.log(post);
   process.exit();
@@ -59,7 +59,7 @@ Post.findByIdAndUpdate("5d21eabef5b1d226c4ee8ddf", data, (err, post) => {
 /**
  * Delete a post
  */
-Post.findByIdAndDelete("5d216651c1001023e44abff8", (err, post) => {
+Post.findByIdAndDelete("5d5f5fff1c01f99a756ffab7", (err, post) => {
   if (err) throw err;
   else console.log(post.title, "has been deleted.");
   process.exit();

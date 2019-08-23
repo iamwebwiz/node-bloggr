@@ -1,17 +1,19 @@
-import express from "express";
-import edge from "express-edge";
-import fileUpload from "express-fileupload";
-import mongoose from "mongoose";
-import bodyParser from "body-parser";
-import path from "path";
-import router from "./router";
-import validationMiddleware from "./middlewares/StorePost";
+const express = require("express");
+const edge = require("express-edge");
+const fileUpload = require("express-fileupload");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const path = require("path");
+const router = require("./router");
+const newPostValidator = require("./middlewares/StorePost");
 const app = express();
 const port = process.env.PORT || 3000;
 
-// mongoose.connect("mongodb://localhost/bloggie", {
-//   useNewUrlParser: true
-// });
+mongoose.Promise = global.Promise;
+
+mongoose.connect("mongodb://localhost/bloggie", {
+  useNewUrlParser: true
+});
 
 app.use(edge);
 
@@ -21,11 +23,11 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.set("views", path.resolve(`${__dirname}/views`));
+app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static("public"));
 
-app.use("/posts/new", validationMiddleware);
+app.use("/posts/new", newPostValidator);
 
 app.use("/", router);
 

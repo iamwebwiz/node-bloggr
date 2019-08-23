@@ -1,12 +1,11 @@
-import Post from "../database/models/Post";
+const Post = require("../database/models/Post");
 
-const index = async (req, res) => {
-  // const posts = await Post.find({});
-  const posts = Array(5).fill({});
+export const index = async (req, res) => {
+  const posts = await Post.find({});
   res.render("index", { posts: posts });
 };
 
-const storePost = async (req, res) => {
+export const storePost = async (req, res) => {
   const post = await Post.save({
     title: req.body.title,
     description: req.body.description,
@@ -17,13 +16,7 @@ const storePost = async (req, res) => {
   res.redirect("/posts");
 };
 
-const readPost = async (req, res) => {
+export const readPost = async (req, res) => {
   const post = await Post.find({ _id: req.params.id });
   res.render("post", { post: post });
-};
-
-module.exports = {
-  index,
-  readPost,
-  storePost
 };
