@@ -1,5 +1,7 @@
-export const index = (req, res) => {
+const index = (req, res) => {
   res.render("landing");
 };
 
-export const contact = (req, res) => res.render("contact");
+const contact = (req, res) => res.render("contact");
+
+module.exports = { index, contact };
