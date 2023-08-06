@@ -7,13 +7,15 @@ import path from "path";
 import { fileURLToPath } from "url";
 import router from "./router.js";
 import newPostValidator from "./middlewares/StorePost.js";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.APP_PORT || 3000;
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect("mongodb://localhost/bloggie", {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
