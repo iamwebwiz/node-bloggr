@@ -4,4 +4,4 @@ const index = (req, res) => {
 
 const contact = (req, res) => res.render("contact");
 
-module.exports = { index, contact };
+export default { index, contact };
