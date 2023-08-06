@@ -15,10 +15,12 @@ const port = process.env.APP_PORT || 3000;
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log(`Connected to database: ${process.env.MONGODB_URI}`));
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
