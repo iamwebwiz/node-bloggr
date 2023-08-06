@@ -15,6 +15,7 @@ mongoose.Promise = global.Promise;
 
 mongoose.connect("mongodb://localhost/bloggie", {
   useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
 const __filename = fileURLToPath(import.meta.url);
