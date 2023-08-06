@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
-const faker = require("faker");
-const Post = require("./database/models/Post");
+import mongoose from "mongoose";
+import faker from "faker";
+import Post from "./database/models/Post.js";
 
 /**
  * Fix deprecation warnings
@@ -29,7 +29,7 @@ Post.find({}, (err, posts) => {
 let data = {
   title: faker.lorem.words(),
   description: faker.lorem.sentence(),
-  content: faker.lorem.sentences()
+  content: faker.lorem.sentences(),
 };
 
 Post.create(data, (error, post) => {
