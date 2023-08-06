@@ -1,19 +1,24 @@
-const express = require("express");
-const edge = require("express-edge");
-const fileUpload = require("express-fileupload");
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-const path = require("path");
-const router = require("./router");
-const newPostValidator = require("./middlewares/StorePost");
+import express from "express";
+import edge from "express-edge";
+import fileUpload from "express-fileupload";
+import mongoose from "mongoose";
+import bodyParser from "body-parser";
+import path from "path";
+import { fileURLToPath } from "url";
+import router from "./router.js";
+import newPostValidator from "./middlewares/StorePost.js";
+
 const app = express();
 const port = process.env.PORT || 3000;
 
 mongoose.Promise = global.Promise;
 
 mongoose.connect("mongodb://localhost/bloggie", {
-  useNewUrlParser: true
+  useNewUrlParser: true,
 });
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use(edge);
 

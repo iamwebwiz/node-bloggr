@@ -1,4 +1,4 @@
-const Post = require("../database/models/Post");
+import Post from "../database/models/Post.js";
 
 const index = async (req, res) => {
   const posts = await Post.find({});
@@ -21,4 +21,4 @@ const readPost = async (req, res) => {
   res.render("post", { post: post });
 };
 
-module.exports = { index, storePost, readPost };
+export default { index, storePost, readPost };
